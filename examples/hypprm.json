@@ -1,1 +1,1 @@
-{"rng_seed": 313, "param_grid": {"lr_start": [1e-1, 3e-2, 1e-2, 3e-3, 1e-3, 3e-4, 1e-4], "lr_step": {"name": "uniform", "args": {"loc": 0.25, "scale": 0.4}}, "max_epochs": [25, 50, 75, 100], "max_iter": [25, 50, 75, 100], "rho_start": [1e-3, 3e-3, 1e-2, 3e-2, 0.1, 0.3, 1, 3], "rho_gain": [1.01, 1.05, 1.1]}}
+{"rng_seed": 313, "param_grid": {"x_var": {"name": "uniform", "args": {"loc": -3, "scale": 6}}, "y_var": {"name": "uniform", "args": {"loc": -2, "scale": 4}}}}
