@@ -1,16 +1,17 @@
 import argparse
 import os
 
-DIR = os.path.dirname(os.path.abspath(__file__))
 DFLT_JOBNAME = 'awesome-job-solving-cv'
 DFLT_OUTPUT = './%A_%a.out'
-DFLT_WORKDIR = os.path.join(DIR)
+DFLT_WORKDIR = os.path.expanduser('~')
+DFLT_NTASKS = 1
+DFLT_MEM = '4G'
 DFLT_GRES = 'gpu:1'
 DFLT_TIME = '72:00:00'
 DFLT_BEFORE_JOB = ''
 DFLT_MAIN_JOB = 'sleep 60'
 DFLT_AFTER_JOB = ''
-SLURM_THEANO_1GPU_ARRAY = (
+SLURM_JOB_ARRAY = (
     '#!/bin/bash\n'
     '# Automatically generated script {slurm_date}\n'
     '# created by: {slurm_generator}\n'
@@ -19,6 +20,8 @@ SLURM_THEANO_1GPU_ARRAY = (
     '#SBATCH --job-name={slurm_job_name}\n'
     '#SBATCH --output={slurm_job_output}\n'
     '#SBATCH --workdir={slurm_job_workdir}\n'
+    '#SBATCH --ntasks={slurm_job_num_tasks}\n'
+    '#SBATCH --mem={slurm_job_mem}\n'
     '#SBATCH --gres={slurm_job_gres}\n'
     '#SBATCH --time={slurm_job_time}\n'
     '\n'
@@ -27,7 +30,7 @@ SLURM_THEANO_1GPU_ARRAY = (
     '{slurm_before_job}\n'
     'echo "------ Executing main job ------"\n'
     'echo "CUDA_VISIBLE_DEVICES=${{CUDA_VISIBLE_DEVICES}}"\n'
-    'THEANO_FLAGS="device=gpu0" {slurm_main_job}\n'
+    '{slurm_main_job}\n'
     'echo "----- Executing after job ------"\n'
     '{slurm_after_job}\n')
 
@@ -58,6 +61,10 @@ def slurm_parser(p=None):
                    help='configure output of slurm job')
     p.add_argument('-sjwd', '--slurm-job-workdir', default=DFLT_WORKDIR,
                    help='path for workdir')
+    p.add_argument('-sjnt', '--slurm-job-num-tasks', default=DFLT_NTASKS,
+                   help='maximum number of tasks/process for job')
+    p.add_argument('-sjm', '--slurm-job-mem', default=DFLT_MEM,
+                   help='global memory required by the job')
     p.add_argument('-sjr', '--slurm-job-gres', default=DFLT_GRES,
                    help='general resources required by the job')
     p.add_argument('-sjt', '--slurm-job-time', default=DFLT_TIME,
