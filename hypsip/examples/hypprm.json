@@ -1,1 +1,19 @@
-{"rng_seed": 313, "param_grid": {"x_var": {"name": "uniform", "args": {"loc": -3, "scale": 6}}, "y_var": {"name": "uniform", "args": {"loc": -2, "scale": 4}}}}
+{
+    "param_grid": {
+        "x_var": {
+            "args": {
+                "loc": -3, 
+                "scale": 6
+            }, 
+            "name": "uniform"
+        }, 
+        "y_var": {
+            "args": {
+                "loc": -2, 
+                "scale": 4
+            }, 
+            "name": "uniform"
+        }
+    }, 
+    "rng_seed": 313
+}

@@ -37,11 +37,11 @@ There is not catch :stuck_out_tongue_winking_eye: ... OK, you have to use [argpa
 
 1. Identify a template for the scheduler in your head-node.
 
-2. Replace [these lines](hypsip/examples/wrapper_camel#L11-L12) with the template that you found.
+2. Replace [these lines](hypsip/examples/wrapper_camel.py#L11-L12) with the template that you found.
 
-3. Replace [this line](hypsip/examples/wrapper_camel#L14) with the argument parser of your program.
+3. Replace [this line](hypsip/examples/wrapper_camel.py#L14) with the argument parser of your program.
 
-4. Replace [this line](hypsip/examples/wrapper_camel#L15) with the main function of your program.
+4. Replace [this line](hypsip/examples/wrapper_camel.py#L15) with the main function of your program.
 
 5. Run it and check that you are not using the same name for multiple variables after merging all the parsers :blush:.
 
