@@ -13,6 +13,7 @@ def main(x_var, y_var, **kwargs):
     """
     f = ((4 - 2.1 * x_var**2 + x_var**4 / 3) * x_var**2 +
          x_var * y_var + (-4 + 4 * y_var**2) * y_var**2)
+    print 'f({}, {}) ='.format(x_var, y_var), f
     return f
 
 

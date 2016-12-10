@@ -12,6 +12,7 @@ def main_rosenbrock(x_var, y_var, a=1, b=100, **kwargs):
     """Rosenbrock fuction
     """
     f = (a - x_var)**2 + b * (y_var - x_var**2)**2
+    print 'f({}, {}) ='.format(x_var, y_var), f
     return f
 
 
